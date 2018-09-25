@@ -12,12 +12,15 @@ import Alamofire
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var mediasListTableView:UITableView!
+    
     var iTunesData:Array = [[String: Any]]()
     var mediaType:String = "Apple Music"
+    
     var appleMusicButton:UIButton!
     var iTunesMusicButton:UIButton!
     var iOSAppsButton:UIButton!
     
+    var titleLabel:UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +33,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     private func initControls() {
         
+        var yPosition:CGFloat = iPhoneX_TopPadding;
+        
+        self.titleLabel = UILabel(frame: CGRect(x: 0, y: iPhoneX_TopPadding, width: UIScreen.main.bounds.width, height: 30))
+        self.titleLabel.text = "MUSIC"
+        self.titleLabel.backgroundColor = UIColor.gray
+        self.titleLabel.font = UIFont(name: "Arial", size: 22)
+        self.titleLabel.textColor = UIColor.white
+        self.titleLabel.textAlignment = NSTextAlignment.center
+        self.view.addSubview(self.titleLabel)
+        
         let buttonWidth = (UIScreen.main.bounds.size.width-60)/3;
         
         var xPosition:CGFloat = 20;
-        var yPosition:CGFloat = 10 + iPhoneX_TopPadding;
+        yPosition = yPosition + 40;
         
         self.appleMusicButton = UIButton(frame: CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: 30))
         self.appleMusicButton.setTitle("Apple Music", for: .normal)
@@ -71,6 +84,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.mediasListTableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(self.mediasListTableView)
         
+        
+        self.mediasListTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addConstraints([
+            
+            NSLayoutConstraint(item: self.mediasListTableView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: iPhoneX_TopPadding+80),
+            NSLayoutConstraint(item: self.mediasListTableView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0),
+            NSLayoutConstraint(item: self.mediasListTableView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0),
+            NSLayoutConstraint(item: self.mediasListTableView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0),
+            ])
         
     }
     
@@ -145,7 +168,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     if let objJson2 = objJson["feed"] as! NSDictionary! {
                         
                         
-                        // if let objJsn3 = try JSONSerialization.jsonObject(with: objJson2["results"], options: []) as? [Any] {
                          if let objJson3 = objJson2["results"] as! NSArray! {
                             
                             for ele in objJson3 {
@@ -155,7 +177,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 var myDic = [String:Any]()
                                 myDic["name"] = dt!["name"]! as? String
                                 myDic["artworkUrl100"] = dt!["artworkUrl100"]! as? String
-                                myDic["MediaType"] = "Apple Music"
+                                myDic["MediaType"] = self.mediaType
                                 
                                 self.iTunesData.append(myDic)
                                 
@@ -221,6 +243,43 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.getData()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        var buttonWidth:CGFloat = 0.0;
+        var yPosition:CGFloat = iPhoneX_TopPadding;
+        
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+           
+            buttonWidth = (UIScreen.main.bounds.size.height-60)/3;
+            self.titleLabel.frame = CGRect(x: 0, y: iPhoneX_TopPadding, width: UIScreen.main.bounds.height, height: 30)
+            
+        } else {
+            print("Portrait")
+            
+            buttonWidth = (UIScreen.main.bounds.size.height-60)/3;
+            self.titleLabel.frame = CGRect(x: 0, y: iPhoneX_TopPadding, width: UIScreen.main.bounds.height, height: 30)
+        }
+        
+        
+        var xPosition:CGFloat = 20;
+        yPosition = yPosition + 40;
+        
+        self.appleMusicButton.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: 30)
+        
+        xPosition = xPosition + buttonWidth + 10
+        
+        self.iTunesMusicButton.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: 30)
+        
+        xPosition = xPosition + buttonWidth + 10
+        
+        
+        self.iOSAppsButton.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: 30)
+        
+    }
+    
 
 }
 
