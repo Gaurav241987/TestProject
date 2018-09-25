@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31461D259F725765CF7E158D /* Pods_TestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7D8C80763FB8BE68AB7691 /* Pods_TestProject.framework */; };
 		F409E0C9215A08A400542D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409E0C8215A08A400542D13 /* AppDelegate.swift */; };
 		F409E0CB215A08A400542D13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409E0CA215A08A400542D13 /* ViewController.swift */; };
 		F409E0CE215A08A400542D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409E0CC215A08A400542D13 /* Main.storyboard */; };
 		F409E0D0215A08B100542D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F409E0CF215A08B100542D13 /* Assets.xcassets */; };
 		F409E0D3215A08B100542D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409E0D1215A08B100542D13 /* LaunchScreen.storyboard */; };
+		F409E0DC215A0F7100542D13 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409E0DB215A0F7100542D13 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2837816E32D60D101582F74E /* Pods-TestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestProject/Pods-TestProject.debug.xcconfig"; sourceTree = "<group>"; };
+		399C5807433A45BCF8828C07 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
+		3F7D8C80763FB8BE68AB7691 /* Pods_TestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F409E0C5215A08A400542D13 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F409E0C8215A08A400542D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F409E0CA215A08A400542D13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		F409E0CF215A08B100542D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F409E0D2215A08B100542D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F409E0D4215A08B100542D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F409E0DB215A0F7100542D13 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31461D259F725765CF7E158D /* Pods_TestProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34D6B80C2DD04206A62031F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D8C80763FB8BE68AB7691 /* Pods_TestProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DE148468C4A9C0B7586FFA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2837816E32D60D101582F74E /* Pods-TestProject.debug.xcconfig */,
+				399C5807433A45BCF8828C07 /* Pods-TestProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F409E0BC215A08A400542D13 = {
 			isa = PBXGroup;
 			children = (
 				F409E0C7215A08A400542D13 /* TestProject */,
 				F409E0C6215A08A400542D13 /* Products */,
+				4DE148468C4A9C0B7586FFA4 /* Pods */,
+				34D6B80C2DD04206A62031F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				F409E0CF215A08B100542D13 /* Assets.xcassets */,
 				F409E0D1215A08B100542D13 /* LaunchScreen.storyboard */,
 				F409E0D4215A08B100542D13 /* Info.plist */,
+				F409E0DB215A0F7100542D13 /* CustomTableViewCell.swift */,
 			);
 			path = TestProject;
 			sourceTree = "<group>";
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F409E0D7215A08B100542D13 /* Build configuration list for PBXNativeTarget "TestProject" */;
 			buildPhases = (
+				98B0384A56115637D986DDBA /* [CP] Check Pods Manifest.lock */,
 				F409E0C1215A08A400542D13 /* Sources */,
 				F409E0C2215A08A400542D13 /* Frameworks */,
 				F409E0C3215A08A400542D13 /* Resources */,
+				CAD1682902FB94AF1A83A9F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +159,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		98B0384A56115637D986DDBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAD1682902FB94AF1A83A9F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TestProject/Pods-TestProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestProject/Pods-TestProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F409E0C1215A08A400542D13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F409E0DC215A0F7100542D13 /* CustomTableViewCell.swift in Sources */,
 				F409E0CB215A08A400542D13 /* ViewController.swift in Sources */,
 				F409E0C9215A08A400542D13 /* AppDelegate.swift in Sources */,
 			);
@@ -280,11 +349,13 @@
 		};
 		F409E0D8215A08B100542D13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2837816E32D60D101582F74E /* Pods-TestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SG3KCU48ZD;
 				INFOPLIST_FILE = TestProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,11 +369,13 @@
 		};
 		F409E0D9215A08B100542D13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 399C5807433A45BCF8828C07 /* Pods-TestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SG3KCU48ZD;
 				INFOPLIST_FILE = TestProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
