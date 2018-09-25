@@ -8,14 +8,33 @@
 
 import UIKit
 
+var iPhoneX_TopPadding:CGFloat = UIApplication.shared.statusBarFrame.height;
+var iPhoneX_BottomPadding:CGFloat = UIApplication.shared.statusBarFrame.height;
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let IS_IPHONE_X_XPLUS_XR  = UIScreen.main.bounds.size.height == 812.0 || UIScreen.main.bounds.size.height == 896.0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+    
+        if #available(iOS 11.0, *) {
+            
+            if (IS_IPHONE_X_XPLUS_XR) {
+                
+                iPhoneX_TopPadding = iPhoneX_TopPadding + (self.window?.safeAreaInsets.top)!
+                iPhoneX_BottomPadding = iPhoneX_BottomPadding + (self.window?.safeAreaInsets.bottom)!;
+
+            } else {
+                // Fallback on earlier versions
+            };
+        }
+       
+        
         return true
     }
 
